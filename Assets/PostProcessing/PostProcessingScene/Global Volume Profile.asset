@@ -19,13 +19,19 @@ MonoBehaviour:
     m_Value: 1
   scanRange:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 20
   scanColor:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 0, b: 0, a: 1}
+    m_Value: {r: 0, g: 0.9248903, b: 1, a: 1}
     hdr: 0
     showAlpha: 1
     showEyeDropper: 1
+  scanTexture:
+    m_OverrideState: 1
+    m_Value: {fileID: 2800000, guid: c943275e21b887949ab5a181d675be19, type: 3}
+  meshWidth:
+    m_OverrideState: 1
+    m_Value: 50
   scanDistace:
     m_OverrideState: 1
     m_Value: 0
@@ -87,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 505ecdf2de9c43a9b7787d3406b63eb1, type: 3}
   m_Name: Fog
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
   isActive:
     m_OverrideState: 1
@@ -106,7 +112,7 @@ MonoBehaviour:
     m_Value: 0
   fogEnd:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 20
 --- !u!114 &-3148322503831792809
 MonoBehaviour:
   m_ObjectHideFlags: 3

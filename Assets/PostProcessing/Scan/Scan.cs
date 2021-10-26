@@ -12,7 +12,10 @@ public class Scan : CustomVolumeComponent
     public BoolParameter isActive = new BoolParameter(false);
     public FloatParameter scanRange = new FloatParameter(1.0f);
     public ColorParameter scanColor = new ColorParameter(Color.white);
-    
+
+    public TextureParameter scanTexture = new TextureParameter(null);
+    public FloatParameter meshWidth = new FloatParameter(0.0f);
+
     [HideInInspector] public FloatParameter scanDistace = new FloatParameter(0.0f);
     [HideInInspector] public Vector3Parameter clickPos = new Vector3Parameter(Vector3.zero);
 
@@ -76,6 +79,10 @@ public class Scan : CustomVolumeComponent
         material.SetFloat("_ScanDistance", scanDistace.value);
         material.SetFloat("_ScanRange", scanRange.value);
         material.SetColor("_ScanColor", scanColor.value);
+        material.SetMatrix("_CamToWorld", Camera.main.cameraToWorldMatrix);
+
+        material.SetTexture("_ScanTex", scanTexture.value);
+        material.SetFloat("_MeshWidth", meshWidth.value);
 
         cmd.Blit(source, destination, material);
     }

@@ -3,9 +3,10 @@
     Properties
     {
         [HideInInspector]_MainTex("Base (RGB)", 2D) = "white" {}
-        _ScanDistance ("ScanDistance", Float) = 0.0
-        _ScanRange ("ScanRange", Float) = 1.0
-        _ScanColor ("ScanColor", Color) = (1,1,1,1)
+        _ScanColor ("Scan Color", Color) = (1, 1, 1, 1)
+        _ScanDistance ("Scan Distance", Float) = 0.0
+        _ScanRange ("Scan Range", Float) = 1.0
+        _ScanTex ("Scan Texture",2D) = "white"
     }
     SubShader
     {
@@ -36,12 +37,18 @@
             TEXTURE2D(_CameraDepthTexture);
             SAMPLER(sampler_CameraDepthTexture);
 
+            TEXTURE2D(_ScanTex);
+            SAMPLER(sampler_ScanTex);
+            float _MeshWidth;
+
             float4x4 _FrustumCornersRay;
+            float4x4 _CamToWorld;
             vector _ScanCenter;
 
             float _ScanDistance;
             float _ScanRange;
-            half4 _ScanColor;
+
+            float4 _ScanColor;
 
             struct Attributes
             {
@@ -82,21 +89,36 @@
                 return output;
             }
 
+
             float4 frag(Varyings input) : SV_Target
             {
                 half4 finalColor = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, input.uv);
 
-                float linearDepth = LinearEyeDepth(
+                float depth = LinearEyeDepth(
                     SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, input.uv_depth), _ZBufferParams);
 
-                float3 worldPos = _WorldSpaceCameraPos + linearDepth * input.interpolatedRay.xyz;
+                half3 normal = DecodeDepthNormal(SAMPLE_TEXTURE2D(_CameraDepthNormalsTexture, sampler_CameraDepthNormalsTexture, input.uv_depth)).
+                    xyz;;
+                normal = mul((float3x3)_CamToWorld, normal);
+                normal = normalize(abs(normal));
 
-                float distanceFromCenter = distance(worldPos, _ScanCenter);
+                float3 worldPos = _WorldSpaceCameraPos + depth * input.interpolatedRay.xyz;
+                float distanceFromCenter = distance(worldPos, _ScanCenter.xyz);
 
-                if (distanceFromCenter < _ScanDistance && linearDepth < _ProjectionParams.z)
+                float3 modulo = worldPos - _MeshWidth * floor(distanceFromCenter / _MeshWidth);
+                modulo = modulo / _MeshWidth;
+
+                half4 c_right = SAMPLE_TEXTURE2D(_ScanTex, sampler_ScanTex, modulo.yz) * normal.x;
+                half4 c_front = SAMPLE_TEXTURE2D(_ScanTex, sampler_ScanTex, modulo.xy) * normal.z;
+                half4 c_up = SAMPLE_TEXTURE2D(_ScanTex, sampler_ScanTex, modulo.xz) * normal.y;
+                half4 scanMeshCol = saturate(c_up + c_right + c_front);
+
+                if (_ScanDistance - distanceFromCenter > 0
+                    && _ScanDistance - distanceFromCenter < _ScanRange
+                    && depth < _ProjectionParams.z)
                 {
                     float diff = 1 - (_ScanDistance - distanceFromCenter) / _ScanRange;
-                    finalColor = lerp(finalColor, _ScanColor, saturate(diff));
+                    finalColor = lerp(finalColor, scanMeshCol * _ScanColor, saturate(diff));
                 }
 
                 return finalColor;

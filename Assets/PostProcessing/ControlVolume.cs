@@ -10,7 +10,7 @@ public class ControlVolume : MonoBehaviour
 
     [Header("Scan")] public float scanMaxDistance = 1f;
     public float scanSpeed = 1f;
-    private Scan scanComponent;
+    public Scan scanComponent;
 
     void Start()
     {
@@ -37,6 +37,7 @@ public class ControlVolume : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 scanComponent.clickPos.value = hit.point;
+
                 StartCoroutine(ScanDistance());
             }
         }
