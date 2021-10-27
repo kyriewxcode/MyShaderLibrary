@@ -138,6 +138,44 @@ MonoBehaviour:
   Strength:
     m_OverrideState: 1
     m_Value: -8.91
+--- !u!114 &-494762040776943486
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e82b7dce030d44ebe40ff91ad72b9f, type: 3}
+  m_Name: Scan
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  isActive:
+    m_OverrideState: 1
+    m_Value: 1
+  scanRange:
+    m_OverrideState: 1
+    m_Value: 40
+  scanColor:
+    m_OverrideState: 1
+    m_Value: {r: 0.42745098, g: 0.98039216, b: 1, a: 1}
+    hdr: 0
+    showAlpha: 1
+    showEyeDropper: 1
+  scanTexture:
+    m_OverrideState: 1
+    m_Value: {fileID: 2800000, guid: f5403351548987f4fb798a485413eb9e, type: 3}
+  meshWidth:
+    m_OverrideState: 1
+    m_Value: 70
+  scanDistace:
+    m_OverrideState: 1
+    m_Value: 0
+  clickPos:
+    m_OverrideState: 1
+    m_Value: {x: 0, y: 0, z: 0}
 --- !u!114 &-73550289907769070
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -157,6 +195,66 @@ MonoBehaviour:
   isActive:
     m_OverrideState: 1
     m_Value: 0
+--- !u!114 &-28000710088131944
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fb7411af15b81448934ba57d0f763ed, type: 3}
+  m_Name: EdgeDetectionOutline
+  m_EditorClassIdentifier: 
+  active: 0
+  m_AdvancedMode: 0
+  isActive:
+    m_OverrideState: 1
+    m_Value: 1
+  edgesOnly:
+    m_OverrideState: 1
+    m_Value: 1
+    min: 0
+    max: 1
+  edgeColor:
+    m_OverrideState: 1
+    m_Value: {r: 0, g: 0, b: 0, a: 1}
+    hdr: 0
+    showAlpha: 1
+    showEyeDropper: 1
+  backgroundColor:
+    m_OverrideState: 1
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    hdr: 0
+    showAlpha: 1
+    showEyeDropper: 1
+  sampleDistance:
+    m_OverrideState: 1
+    m_Value: 1
+  sensitivityNormals:
+    m_OverrideState: 1
+    m_Value: 1
+  sensitivityDepth:
+    m_OverrideState: 1
+    m_Value: 1
+--- !u!114 &-13179339968177689
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a4e2ff7ffb658b438977fd25dfca123, type: 3}
+  m_Name: DepthMap
+  m_EditorClassIdentifier: 
+  active: 0
+  m_AdvancedMode: 0
+  isActive:
+    m_OverrideState: 1
+    m_Value: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,10 +268,42 @@ MonoBehaviour:
   m_Name: Global Volume Profile
   m_EditorClassIdentifier: 
   components:
-  - {fileID: 6193774902027265531}
-  - {fileID: -5865251080517651030}
-  - {fileID: -3362204420487606188}
-  - {fileID: -5972704087882336361}
+  - {fileID: -13179339968177689}
+  - {fileID: -28000710088131944}
+  - {fileID: 3660201074642227319}
+  - {fileID: -494762040776943486}
+--- !u!114 &3660201074642227319
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a3dbd52930b65f408eac3ee3a4fffc2, type: 3}
+  m_Name: Fog
+  m_EditorClassIdentifier: 
+  active: 0
+  m_AdvancedMode: 0
+  isActive:
+    m_OverrideState: 1
+    m_Value: 1
+  fogDensity:
+    m_OverrideState: 1
+    m_Value: 1
+  fogColor:
+    m_OverrideState: 1
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    hdr: 0
+    showAlpha: 1
+    showEyeDropper: 1
+  fogStart:
+    m_OverrideState: 1
+    m_Value: 0
+  fogEnd:
+    m_OverrideState: 1
+    m_Value: 2
 --- !u!114 &6193774902027265531
 MonoBehaviour:
   m_ObjectHideFlags: 3

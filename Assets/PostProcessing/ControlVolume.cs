@@ -19,7 +19,7 @@ public class ControlVolume : MonoBehaviour
         foreach (var component in components)
         {
             if (component.GetType() == typeof(Scan))
-                scanComponent = (Scan)component;
+                scanComponent = (Scan) component;
         }
     }
 
