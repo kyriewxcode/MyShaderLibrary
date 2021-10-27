@@ -30,6 +30,7 @@ public class ControlVolume : MonoBehaviour
 
     void GetClickPoint()
     {
+        if (scanComponent == null) return;
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
