@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e82b7dce030d44ebe40ff91ad72b9f, type: 3}
   m_Name: Scan
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   m_AdvancedMode: 0
   isActive:
     m_OverrideState: 1
@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3dbd52930b65f408eac3ee3a4fffc2, type: 3}
   m_Name: Fog
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   m_AdvancedMode: 0
   isActive:
     m_OverrideState: 1
