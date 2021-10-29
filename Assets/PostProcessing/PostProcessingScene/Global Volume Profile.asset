@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e82b7dce030d44ebe40ff91ad72b9f, type: 3}
   m_Name: Scan
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
   isActive:
     m_OverrideState: 1
