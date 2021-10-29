@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -178,6 +178,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: dd6ec75974b69a3409711f8110698bbb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e0e1d7a7c6b98574a87745c5cfd6bb0d, type: 2}
+    - target: {fileID: 13700002, guid: dd6ec75974b69a3409711f8110698bbb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e0e1d7a7c6b98574a87745c5cfd6bb0d, type: 2}
     - target: {fileID: 13700004, guid: dd6ec75974b69a3409711f8110698bbb, type: 3}
       propertyPath: m_DirtyAABB
       value: 0
@@ -202,6 +210,22 @@ PrefabInstance:
       propertyPath: m_AABB.m_Extent.z
       value: 0.06875077
       objectReference: {fileID: 0}
+    - target: {fileID: 13700004, guid: dd6ec75974b69a3409711f8110698bbb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e0e1d7a7c6b98574a87745c5cfd6bb0d, type: 2}
+    - target: {fileID: 13700006, guid: dd6ec75974b69a3409711f8110698bbb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e0e1d7a7c6b98574a87745c5cfd6bb0d, type: 2}
+    - target: {fileID: 13700008, guid: dd6ec75974b69a3409711f8110698bbb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e0e1d7a7c6b98574a87745c5cfd6bb0d, type: 2}
+    - target: {fileID: 13700010, guid: dd6ec75974b69a3409711f8110698bbb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e0e1d7a7c6b98574a87745c5cfd6bb0d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd6ec75974b69a3409711f8110698bbb, type: 3}
 --- !u!1 &198409918
