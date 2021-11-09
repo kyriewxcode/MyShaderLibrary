@@ -109,7 +109,7 @@
 
 				#if defined(ENABLE_NORMAL_MAP)
 				half sign = input.tangentOS.w * GetOddNegativeScale(); // 判断法线贴图是否需要取反
-				half3 tangentWS = TransformObjectToWorldDir(input.tangentOS);
+				half3 tangentWS = TransformObjectToWorldDir(input.tangentOS).xyz;
 				output.tangentWS = half4(tangentWS, sign);
 				#endif
 
